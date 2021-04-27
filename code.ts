@@ -1,8 +1,14 @@
 interface User {
   username: string;
   password: string;
-}
+};
 // ========== Task #1 - write GetUserResult ==========
+const user: GetUserResult = { // This should be valid
+  username: 'test',
+  password: 'secret'
+};
+const noResults: GetUserResult = null; // This should be valid
+const notDefined: GetUserResult = undefined; // This should be marked as error
 
 /**
  * Finds matching username with password
@@ -15,19 +21,22 @@ export function getUser(users: User[], username: string, password: string): GetU
   // ========== Task #2 - implement getUser function ==========
 }
 
-// ========== Task #3 - write ExtendedUser which contains age ==========
-
+// ========== Task #3 - write UserWithAge which contains age ==========
+const validUserWithAge: UserWithAge = {
+  username: 'user',
+  password: 'pass',
+  age: 35
+};
 /**
  * Extend all the users records with 'age' property with random value from range 21 to 40
  * @param users array of users
  * @returns users extended by age property 
  */
-export function extendUsersWithRandomAge(users: User[]): ExtendedUser[] {
+export function extendUsersWithRandomAge(users: User[]): UserWithAge[] {
   // ========== Task #4 - implement extendUsersWithRandomAge function ==========
 }
 
 // ========== Task #5 - implement UserMap ==========
-
 const testVariable: UserMap = {
   testuser123: {
     username: 'testuser123',

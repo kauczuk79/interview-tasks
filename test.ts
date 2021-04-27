@@ -10,14 +10,14 @@ describe('Task #2', () => {
 
     it('getUser function should return correct user by correct (username, password) pair', () => {
         assert.deepEqual(getUser(users, 'testuser123', 'password123'), {
-            username: "testuser123",
-            password: "password123"
+            username: 'testuser123',
+            password: 'password123'
         });
     });
 
     it('getUser function should returned "null" for malformed arguments', () => {
-        assert.strictEqual(getUser(users, null, 'password1'), null);
-        assert.strictEqual(getUser(users, undefined, 'test'), null);
+        assert.strictEqual(getUser(users, 'notExistingUser', 'password1'), null);
+        assert.strictEqual(getUser(users, 'testuser123', 'wrong password'), null);
     });
 });
 
@@ -58,25 +58,25 @@ describe('Task #6', () => {
 
     it('transform should transform users array correctly', () => {
         assert.deepEqual(transform(users), {
-            "testuser123": {
-                "username": "testuser123",
-                "password": "password123"
+            testuser123: {
+                username: "testuser123",
+                password: "password123"
             },
-            "admin": {
-                "username": "admin",
-                "password": "qwerty"
+            admin: {
+                username: "admin",
+                password: "qwerty"
             },
-            "johnybravo": {
-                "username": "johnybravo",
-                "password": "123456789"
+            johnybravo: {
+                username: "johnybravo",
+                password: "123456789"
             },
-            "hacker": {
-                "username": "hacker",
-                "password": "trojan"
+            hacker: {
+                username: "hacker",
+                password: "trojan"
             },
-            "guest": {
-                "username": "guest",
-                "password": "empty"
+            guest: {
+                username: "guest",
+                password: "empty"
             }
         });
     })
