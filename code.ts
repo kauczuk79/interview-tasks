@@ -33,11 +33,11 @@ const testVariable: UserMap = {
     username: 'testuser123',
     password: 'password123'
   },
-  shouldBeAnError: {
+  shouldBeAnError: { // This should be marked as error
     test: 1
   },
-  aNumberIsErrorToo: 1,
-  aStringIsErrorToo: 'lorem ipsum'
+  aNumberIsErrorToo: 1, // This should be marked as error
+  aStringIsErrorToo: 'lorem ipsum' // This should be marked as error
 }
 
 /**
