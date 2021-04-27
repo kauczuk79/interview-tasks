@@ -63,5 +63,46 @@ const testVariable: UserMap = {
  * @returns transformed users array indexed by username
  */
 export function transform(users: User[]): UserMap {
-  // Task #6 - Implement transform function
+  // ========== Task #6 - Implement transform function ==========
 }
+
+// ========== Task #7 - correct to have expected behavior ==========
+/**
+ * Function logs 10 times a string in every 10 ms
+ * 
+ * Current output:
+ * > logIntervals(console.log);
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * call number 10
+ * 
+ * Expected output:
+ * > logIntervals(console.log);
+ * call number 0
+ * call number 1
+ * call number 2
+ * call number 3
+ * call number 4
+ * call number 5
+ * call number 6
+ * call number 7
+ * call number 8
+ * call number 9
+ * @param printFn print function
+ */
+export function logIntervals(printFn: (string) => void) {
+  for(var iteration = 0; iteration < 10; iteration++) { 
+    setTimeout(() => {
+      printFn('call number ' + iteration)
+    }, 10);
+  }
+}
+
+// logIntervals(console.log)
