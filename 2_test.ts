@@ -1,11 +1,11 @@
 import users from './users.json';
-import { getUser, extendUsersWithRandomAge, transform, logIntervals } from './code';
+import { getUser, extendUsersWithRandomAge, transform, logIntervals } from './2_javascript';
 import chai from 'chai';
 import spies from 'chai-spies';
 
 chai.use(spies);
 
-describe('Task #2', () => {
+describe('Task #2.1', () => {
     it('getUser function should return "null" if only one of username or password matches', () => {
         chai.assert.strictEqual(getUser(users, 'testuser123', 'NOT_CORRECT'), null);
         chai.assert.strictEqual(getUser(users, 'NOT_CORRECT', 'password123'), null);
@@ -24,7 +24,7 @@ describe('Task #2', () => {
     });
 });
 
-describe('Task #4', () => {
+describe('Task #2.2', () => {
     let usersExtended;
 
     beforeEach(() => {
@@ -40,25 +40,22 @@ describe('Task #4', () => {
     });
 
     it('age in usersExtended array should be between 21 and 40', () => {
-        usersExtended.forEach(user => {
-            chai.assert.isAtLeast(user.age, 21);
-            chai.assert.isAtMost(user.age, 40);
+        users.forEach((user, index) => {
+            chai.assert.strictEqual(user.username, usersExtended[index].username);
+            chai.assert.isAtLeast(usersExtended[index].age, 21);
+            chai.assert.isAtMost(usersExtended[index].age, 40);
         });
     });
 
     it('should be whole number', () => {
-        usersExtended.forEach(user => {
-            chai.assert.equal(Math.floor(user.age), user.age);
+        users.forEach((user, index) => {
+            chai.assert.equal(Math.floor(usersExtended[index].age), usersExtended[index].age);
         });
     });
 });
 
 
-describe('Task #6', () => {
-    it('transform function should exist', () => {
-        chai.assert.exists(transform);
-    })
-
+describe('Task #2.3', () => {
     it('transform should transform users array correctly', () => {
         chai.assert.deepEqual(transform(users), {
             testuser123: {
@@ -82,10 +79,10 @@ describe('Task #6', () => {
                 password: "empty"
             }
         });
-    })
+    });
 });
 
-describe('Task #7', () => {
+describe('Task #2.4', () => {
     it('should print 10 times', (done) => {
         const spy = chai.spy();
         logIntervals(spy);
